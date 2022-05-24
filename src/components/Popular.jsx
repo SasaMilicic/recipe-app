@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { StyPopular, StyCard, Gradient } from './style-popular';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
 function Popular() {
   const [popular, setPopular] = useState([]);
@@ -13,16 +16,32 @@ function Popular() {
     );
     const data = await api.json();
     setPopular(data.recipes);
+    console.log(data.recipes);
   };
 
   return (
-    <div>
-      {popular.map(({ id, title }) => (
-        <div key={id}>
-          <p>{title}</p>
-        </div>
-      ))}
-    </div>
+    <StyPopular>
+      <h3>Popular Picks</h3>
+      <Splide
+        options={{
+          perPage: 4,
+          arrows: false,
+          pagination: false,
+          drag: 'free',
+          gap: '50px',
+        }}
+      >
+        {popular.map(({ id, title, image }) => (
+          <SplideSlide>
+            <StyCard key={id}>
+              <p>{title}</p>
+              <img src={image} alt={title} />
+              <Gradient />
+            </StyCard>
+          </SplideSlide>
+        ))}
+      </Splide>
+    </StyPopular>
   );
 }
 
