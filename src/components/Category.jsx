@@ -1,32 +1,31 @@
 import React from 'react';
 import { FaPizzaSlice, FaHamburger } from 'react-icons/fa';
 import { GiNoodles, GiChopsticks } from 'react-icons/gi';
-import { List } from './style-components';
-import { NavLink } from 'react-router-dom';
+import { StyList, StyNavLink } from './style-components';
 
 function Category() {
   return (
-    <List>
-      <NavLink to={'cuisine/Italian'}>
+    <StyList>
+      <StyNavLink to={'cuisine/Italian'}>
         <FaPizzaSlice />
         <h4>Italian</h4>
-      </NavLink>
+      </StyNavLink>
 
-      <NavLink to={'cuisine/American'}>
+      <StyNavLink to={'cuisine/American'}>
         <FaHamburger />
         <h4>American</h4>
-      </NavLink>
+      </StyNavLink>
 
-      <NavLink to={'cuisine/Thai'}>
+      <StyNavLink to={'cuisine/Thai'}>
         <GiNoodles />
         <h4>Thai</h4>
-      </NavLink>
+      </StyNavLink>
 
-      <NavLink to={'cuisine/Japanese'}>
+      <StyNavLink to={'cuisine/Chinese'}>
         <GiChopsticks />
-        <h4>Japanese</h4>
-      </NavLink>
-    </List>
+        <h4>Chinese</h4>
+      </StyNavLink>
+    </StyList>
   );
 }
 

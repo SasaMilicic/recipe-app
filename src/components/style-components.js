@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { NavLink } from 'react-router-dom';
 
 export const StyPopular = styled.div`
   margin: 60px 0px;
@@ -38,7 +39,7 @@ export const StyCard = styled.div`
   }
 `;
 
-export const Gradient = styled.div`
+export const StyGradient = styled.div`
   z-index: 3;
   position: absolute;
   width: 100%;
@@ -46,8 +47,42 @@ export const Gradient = styled.div`
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
 
-export const List = styled.div`
+export const StyList = styled.div`
   display: flex;
   justify-content: center;
   margin: 30px 0px;
+`;
+
+export const StyNavLink = styled(NavLink)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: 30px;
+  text-decoration: none;
+  background: linear-gradient(35deg, #494949, #313131);
+  width: 90px;
+  height: 90px;
+  cursor: pointer;
+  transform: scale(0.8);
+
+  h4 {
+    color: white;
+  }
+
+  svg {
+    color: white;
+  }
+
+  &.active {
+    background: linear-gradient(to right, #f27121, #e94057);
+
+    svg {
+      color: white;
+    }
+    h4 {
+      color: white;
+    }
+  }
 `;

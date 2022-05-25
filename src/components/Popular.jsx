@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyPopular, StyCard, Gradient } from './style-components';
+import { StyPopular, StyCard, StyGradient } from './style-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
@@ -42,7 +42,7 @@ function Popular() {
             <StyCard>
               <p>{title}</p>
               <img src={image} alt={title} />
-              <Gradient />
+              <StyGradient />
             </StyCard>
           </SplideSlide>
         ))}
