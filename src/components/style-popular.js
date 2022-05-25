@@ -5,7 +5,8 @@ export const StyPopular = styled.div`
 `;
 
 export const StyCard = styled.div`
-  min-height: 400px;
+  min-height: 200px;
+  max-width: 400px;
   border-radius: 30px;
   overflow: hidden;
   position: relative;
