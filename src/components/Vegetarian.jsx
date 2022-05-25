@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyPopular, StyCard, Gradient } from './style-popular';
+import { StyPopular, StyCard, Gradient } from './style-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
