@@ -14,5 +14,23 @@ export const GlobalStyle = createGlobalStyle`
 
   body{
     background-color:grey;
+    margin: 0% 5%;
   } 
+
+  h4{
+  font-size: 15px;
+  color: rgb(56,56,56);
+  }
+
+
+  h3 {
+  font-size: 25px;
+  color: rgb(56,56,56);
+  line-height: 35px;
+  margin: 30px 0px;
+  }
+
+  a{
+  color: rgb(56,56,56);
+  }
 `;

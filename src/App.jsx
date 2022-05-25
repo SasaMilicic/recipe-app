@@ -6,7 +6,6 @@ function App() {
     <>
       <GlobalStyle />
       <StyApp>
-        <h1>Hello World!</h1>
         <Pages />
       </StyApp>
     </>
