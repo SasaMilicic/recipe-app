@@ -1,7 +1,52 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { StyPopular, StyCard, Gradient } from './style-popular';
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
 function Vegetarian() {
-  return <div>Vegetarian</div>;
+  const [vegetarian, setVegetarian] = useState([]);
+
+  useEffect(() => {
+    getVegetarian();
+  }, []);
+
+  const getVegetarian = async () => {
+    const check = sessionStorage.getItem('vegetarian');
+    if (check) {
+      setVegetarian(JSON.parse(check));
+    } else {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=9`
+      );
+      const data = await api.json();
+      sessionStorage.setItem('vegetarian', JSON.stringify(data.recipes));
+      setVegetarian(data.recipes);
+    }
+  };
+  return (
+    <StyPopular>
+      <h3>Vegetarian Picks</h3>
+      <Splide
+        options={{
+          perPage: 3,
+          arrows: false,
+          pagination: false,
+          drag: 'free',
+          gap: '50px',
+        }}
+      >
+        {vegetarian.map(({ id, title, image }) => (
+          <SplideSlide key={id}>
+            <StyCard>
+              <p>{title}</p>
+              <img src={image} alt={title} />
+              <Gradient />
+            </StyCard>
+          </SplideSlide>
+        ))}
+      </Splide>
+    </StyPopular>
+  );
 }
 
 export default Vegetarian;
