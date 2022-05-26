@@ -1,6 +1,7 @@
 import { StyApp, GlobalStyle } from './style-app';
-import Pages from './pages/Pages';
+import Search from './components/Search';
 import Category from './components/Category';
+import Pages from './pages/Pages';
 import { BrowserRouter } from 'react-router-dom';
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <GlobalStyle />
       <StyApp>
         <BrowserRouter>
+          <Search />
           <Category />
           <Pages />
         </BrowserRouter>

@@ -1,6 +1,34 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
+export const StyForm = styled.form`
+  margin: 0px 300px;
+
+  div {
+    width: 100%;
+    position: relative;
+  }
+
+  input {
+    background: linear-gradient(35deg, #494949, #313131);
+    font-size: 20px;
+    color: white;
+    padding: 10px 40px;
+    border: none;
+    border-radius: 15px;
+    outline: none;
+    width: 100%;
+  }
+
+  svg {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(100%, -50%);
+    color: white;
+  }
+`;
+
 export const StyPopular = styled.div`
   margin: 60px 0px;
 `;
