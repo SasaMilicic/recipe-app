@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { StyPopular, StyCard, StyGradient } from './style-components';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
+import { Link } from 'react-router-dom';
 
 function Popular() {
   const [popular, setPopular] = useState([]);
@@ -39,11 +40,13 @@ function Popular() {
       >
         {popular.map(({ id, title, image }) => (
           <SplideSlide key={id}>
-            <StyCard>
-              <p>{title}</p>
-              <img src={image} alt={title} />
-              <StyGradient />
-            </StyCard>
+            <Link to={'/recipe/' + id}>
+              <StyCard>
+                <p>{title}</p>
+                <img src={image} alt={title} />
+                <StyGradient />
+              </StyCard>
+            </Link>
           </SplideSlide>
         ))}
       </Splide>
