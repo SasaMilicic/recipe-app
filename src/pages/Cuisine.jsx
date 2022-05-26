@@ -25,6 +25,7 @@ function Cuisine() {
       {cuisine.map(({ id, image, title }) => (
         <StyCard key={id}>
           <img src={image} alt={title} />
+          <h4>{title}</h4>
         </StyCard>
       ))}
     </StyGrid>
