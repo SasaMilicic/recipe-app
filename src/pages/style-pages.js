@@ -23,7 +23,7 @@ export const StyCard = styled.div`
 `;
 
 export const StyDetails = styled.div`
-  margin-top: 150px;
+  margin-top: 100px;
   margin-bottom: 70px;
   display: flex;
 
@@ -44,6 +44,10 @@ export const StyDetails = styled.div`
   ul {
     margin-top: 30px;
   }
+
+  img {
+    border-radius: 20px;
+  }
 `;
 
 export const StyButton = styled.button`
@@ -52,6 +56,7 @@ export const StyButton = styled.button`
   background: white;
   border: 2px solid black;
   margin-right: 30px;
+  margin-bottom: 5px;
   font-weight: 600;
 `;
 

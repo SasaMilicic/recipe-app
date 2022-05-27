@@ -12,8 +12,6 @@ function Searched() {
     );
     const recipies = await apiRecipies.json();
     setSearchedRecipies(recipies.results);
-
-    console.log(searchedRecipies);
   };
 
   useEffect(() => {
