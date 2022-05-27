@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { StyDetails, StyButton, StyInfo } from './style-pages';
 
 function Recipe() {
-  const [{ title, image }, setDetails] = useState({});
+  const [details, setDetails] = useState({});
   const [activeTab, setActiveTab] = useState('instructions');
   let { name } = useParams();
+
+  console.log(details);
+  console.log(details.extendedIngredients);
 
   const getDetails = async () => {
     const fetchRecipeDetails = await fetch(
@@ -24,8 +27,8 @@ function Recipe() {
   return (
     <StyDetails>
       <div>
-        <h2>{title}</h2>
-        <img src={image} alt={title} />
+        <h2> {details.title} </h2>
+        <img src={details.image} alt={details.title} />
       </div>
       <StyInfo>
         <StyButton
@@ -40,6 +43,20 @@ function Recipe() {
         >
           Ingredients
         </StyButton>
+        {checkActTab('instructions') && (
+          <div>
+            <p dangerouslySetInnerHTML={{ __html: details.summary }} />
+            <p dangerouslySetInnerHTML={{ __html: details.instructions }} />
+          </div>
+        )}
+
+        {checkActTab('ingredients') && (
+          <ul>
+            {details.extendedIngredients.map((ing) => (
+              <li key={ing.id}>{ing.original}</li>
+            ))}
+          </ul>
+        )}
       </StyInfo>
     </StyDetails>
   );
