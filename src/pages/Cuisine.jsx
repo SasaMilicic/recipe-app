@@ -12,8 +12,6 @@ function Cuisine() {
     );
     const recipies = await apiRecipies.json();
     setCuisine(recipies.results);
-
-    console.log(recipies);
   };
 
   useEffect(() => {
@@ -24,8 +22,10 @@ function Cuisine() {
     <StyGrid>
       {cuisine.map(({ id, image, title }) => (
         <StyCard key={id}>
-          <img src={image} alt={title} />
-          <h4>{title}</h4>
+          <Link to={'/recipe/' + id}>
+            <img src={image} alt={title} />
+            <h4>{title}</h4>
+          </Link>
         </StyCard>
       ))}
     </StyGrid>

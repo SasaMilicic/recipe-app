@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { StyGrid, StyCard } from './style-pages';
 
 function Searched() {
@@ -24,8 +24,10 @@ function Searched() {
     <StyGrid>
       {searchedRecipies.map(({ id, image, title }) => (
         <StyCard key={id}>
-          <img src={image} alt={title} />
-          <h4>{title}</h4>
+          <Link to={'/recipe/' + id}>
+            <img src={image} alt={title} />
+            <h4>{title}</h4>
+          </Link>
         </StyCard>
       ))}
     </StyGrid>
